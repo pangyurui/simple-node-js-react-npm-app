@@ -4,12 +4,14 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                sh 'node --version'
-                sh 'echo "Hello World"'
-                sh '''
-                    echo "Multiline shell steps works too"
-                    ls -lah
-                '''
+                timeout(time: 1, unit: 'MINUTES') {
+                    sh 'node --version'
+                    sh 'echo "Hello World"'
+                    sh '''
+                        echo "Multiline shell steps works too"
+                        ls -lah
+                    '''
+                }
             }
         }
     }
