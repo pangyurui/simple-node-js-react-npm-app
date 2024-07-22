@@ -48,7 +48,6 @@ pipeline {
             steps {
                 echo 'Testing'
                 echo 'The Git Commit which triggered this job -->'
-                sh 'git log -1 HEAD --oneline'
             }
         }
         stage('Deploy') {
