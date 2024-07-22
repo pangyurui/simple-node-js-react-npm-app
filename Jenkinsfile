@@ -24,6 +24,12 @@
 /* Requires the Docker Pipeline plugin */
 pipeline {
     agent { docker { image 'node:20.15.1-alpine3.20' } }
+
+    environment {
+        DISABLE_AUTH = 'true'
+        DB_ENGINE    = 'sqlite'
+    }
+    
     stages {
         stage('buildz') {
             steps {
@@ -33,6 +39,9 @@ pipeline {
                     echo "Multiline shell steps works too"
                     ls -lah
                 '''
+                echo "Database engine is ${DB_ENGINE}"
+                echo "DISABLE_AUTH is ${DISABLE_AUTH}"
+                sh 'printenv'
             }
         }
     }
