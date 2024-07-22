@@ -39,9 +39,6 @@ pipeline {
                     echo "Multiline shell steps works too"
                     ls -lah
                 '''
-                echo "Database engine is ${DB_ENGINE}"
-                echo "DISABLE_AUTH is ${DISABLE_AUTH}"
-                sh 'printenv'
             }
         }
         stage('Test') {
