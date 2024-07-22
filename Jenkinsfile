@@ -44,11 +44,20 @@ pipeline {
                 sh 'printenv'
             }
         }
+        stage('Test') {
+            steps {
+                echo 'Testing'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying'
+            }
+        }
     }
     post {
         always {
             echo 'This will always run'
-            junit 'build/reports/**/*.xml'
         }
         success {
             echo 'This will run only if successful'
