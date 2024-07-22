@@ -41,17 +41,6 @@ pipeline {
                 '''
             }
         }
-        stage('Test') {
-            steps {
-                echo 'Testing'
-                echo 'The Git Commit which triggered this job -->'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying'
-            }
-        }
     }
     post {
         always {
